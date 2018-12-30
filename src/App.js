@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import NavBar from './components/navbar/navbar';
+import Footer from './components/footer/footer';
+import Routes from './components/routes';
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      login : false,
+      address : null
+    };
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  handleLogin = (login,address) => {
+    this.setState({
+      login : login,
+      address : address
+    })
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="mb-5">
+          <NavBar login={this.state.login}></NavBar>
+        </div>
+        <Routes handleLogin={this.handleLogin} login={this.state.login} address={this.state.address}></Routes>
+        <Footer></Footer>
       </div>
     );
   }
