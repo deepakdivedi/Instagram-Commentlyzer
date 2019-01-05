@@ -11,6 +11,8 @@ class LogOut extends Component{
     axios.get(this.props.address+'/logout').then((response) => {
       console.log("logout");
       this.props.handleLogin(false,null);
+      localStorage.removeItem('loginValue');
+      localStorage.removeItem('address');
     })
   }
   render(){

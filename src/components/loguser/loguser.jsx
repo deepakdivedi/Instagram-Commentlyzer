@@ -23,6 +23,8 @@ class LogUser extends Component {
       axios.put(this.state.address+'/login',{'username':this.state.username,'password':this.state.password}).then((response) => {
         if(response.data.login){
            this.props.handleLogin(response.data.login,this.state.address);
+           localStorage.setItem('loginValue',true);
+           localStorage.setItem('address',this.state.address);
         }
       })
       .catch((error) => {

@@ -6,9 +6,9 @@ class Home extends Component {
   render(){
     if(this.props.login){
       return(
-        <div>
-          <UserData address={this.props.address}></UserData>
-          <UserGallery></UserGallery>
+        <div className="d-flex flex-row align-items-center">
+          <UserData className="p-2" address={this.props.address}></UserData>
+          <UserGallery className="p-2" address={this.props.address}></UserGallery>
         </div>
       );
     }else{
