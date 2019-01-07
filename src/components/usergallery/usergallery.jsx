@@ -18,19 +18,22 @@ class UserGallery extends Component {
         max_id : response.data.max_id,
         hmp : response.data.hmp
       })
-      console.log(this.state.imageObject)
     });
   }
   render(){
     return(
         <div>
-          <div className="container">
-            <div className="row">
+          <div>
+            <div className="row" style = {{overflowY: 'scroll', height: '80vh', marginTop: "20px", marginBottom: "20px", width:"100%"}}>
               {Object.keys(this.state.imageObject).map((i) => {
                 return (
-                  <Image
+                  <div className="m-auto">
+                    <div className="card m-2">
+                    <Image 
                     key = {i}
                     url={this.state.imageObject[i]['image_versions2']['candidates'][1]['url']}></Image>
+                  </div>
+                  </div>
                 )
               })}
             </div>

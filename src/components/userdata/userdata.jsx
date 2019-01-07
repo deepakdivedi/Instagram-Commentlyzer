@@ -32,7 +32,7 @@ class UserData extends Component {
             <h4 className="card-header ">{this.state.fullName}</h4>
               <div className="card-body justify-content-center">
                 <img src={this.state.profilePicture} alt="" className="rounded-circle mt-2 mb-5 ml-4" height="200" width="200"></img>
-                  <div>
+                  <div className="font-weight-bold">
                     {this.state.userName}
                   </div>
                   <div>

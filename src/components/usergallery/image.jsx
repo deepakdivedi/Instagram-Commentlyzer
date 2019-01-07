@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 
 class Image extends Component {
   render(){
-    console.log(this.props.url)
     return(
-      <div className=" ">
-        <img className="img-fluid img-thumbnail col-lg-3" src={this.props.url}  />
+      <div className="d-flex justify-content-center" style = {{width:"240px"}}>
+        <img style = {{height: "240px", width:"auto"}} className="" alt ="" src={this.props.url}  />
       </div>
     );
   }
