@@ -20,6 +20,7 @@ class App extends Component {
     })
   }
   componentDidMount(){
+
     if(localStorage.getItem('loginValue')!==null){
       if(localStorage.getItem('loginValue')===false){
         this.setState({
