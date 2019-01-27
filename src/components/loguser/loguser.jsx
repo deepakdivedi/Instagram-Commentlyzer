@@ -21,10 +21,13 @@ class LogUser extends Component {
     handleSubmit = (e) => {
       e.preventDefault();
       axios.put(this.state.address+'/login',{'username':this.state.username,'password':this.state.password}).then((response) => {
-        if(response.data.login){
+        console.log(response.data);
+        if(response.data.invalid_credentials){
            this.props.handleLogin(response.data.login,this.state.address);
            localStorage.setItem('loginValue',true);
            localStorage.setItem('address',this.state.address);
+        }else{
+          alert("dfhs");
         }
       })
       .catch((error) => {
