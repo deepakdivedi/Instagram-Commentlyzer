@@ -6,23 +6,29 @@ class UserGallery extends Component {
   constructor(props){
     super(props);
     this.state={
-      imageObject : false,
+      imageObject : [],
       max_id : "",
-      hmp : false,
+      hmp : true,
       fullscreen : false,
       index : ""
     }
     this.toggle_full_screen = this.toggle_full_screen.bind(this);
   }
-  componentDidMount = () => {
+  request_server = () =>{
     axios.put(this.props.address+'/userfeed',{'max_id':this.state.max_id}).then((response) => {
+      var temp_obj = this.state.imageObject.concat(response.data.feed);
       this.setState({
-        imageObject : response.data.feed,
+        imageObject : temp_obj,
         max_id : response.data.max_id,
         hmp : response.data.hmp
       })
       console.log(this.state.imageObject);
     });
+  }
+  componentDidMount = () => {
+    this.request_server();
+    this.request_server();
+    console.log(this.state.imageObject);
   }
 
   toggle_full_screen = (index) => {
@@ -42,30 +48,61 @@ class UserGallery extends Component {
         <Image
       url = {this.state.imageObject[this.state.index]['image_versions2']['candidates'][0]['url']}
       allowFullScreen = {this.toggle_full_screen}
-      fullscreen = {this.state.fullscreen}></Image>
-  );
+      fullscreen = {this.state.fullscreen}
+      caption = {this.state.imageObject[this.state.index]['caption']['text']}
+      comments = {this.state.imageObject[this.state.index]['preview_comments']}
+      likes = {this.state.imageObject[this.state.index]['like_count']}></Image>
+      );
     }else{
-      return(
-          <div>
+      if(this.state.hmp){
+        return(
             <div>
-              <div className="row" style = {{overflowY: 'scroll', height: '80vh', marginTop: "20px", marginBottom: "20px", width:"100%"}}>
-                {Object.keys(this.state.imageObject).map((i) => {
-                  return (
-                    <div className="m-auto">
-                      <div className="card m-2">
-                      <Image
-                      key = {i}
-                      url = {this.state.imageObject[i]['image_versions2']['candidates'][1]['url']}
-                      allowFullScreen = {this.toggle_full_screen}
-                      index = {i}></Image>
-                    </div>
-                    </div>
-                  )
-                })}
+              <div>
+                <div className="row mb-1" style = {{overflowY: 'scroll', height: '80vh', marginTop: "20px", marginBottom: "20px", width:"100%"}}>
+                  {Object.keys(this.state.imageObject).map((i) => {
+                    return (
+                      <div className="m-auto">
+                          <div className="card m-2">
+                            <Image
+                            key = {i.toString()}
+                            url = {this.state.imageObject[i]['image_versions2']['candidates'][1]['url']}
+                            allowFullScreen = {this.toggle_full_screen}
+                            index = {i}></Image>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+                <div className="mb-3">
+                    <button className="btn btn-primary mb-5 " onClick={this.request_server}>Load More</button>
+                </div>
               </div>
             </div>
-          </div>
-      );
+        );
+      }
+      else{
+        return(
+            <div>
+              <div>
+                <div className="row" style = {{overflowY: 'scroll', height: '80vh', marginTop: "20px", marginBottom: "20px", width:"100%"}}>
+                  {Object.keys(this.state.imageObject).map((i) => {
+                    return (
+                      <div className="m-auto">
+                        <div className="card m-2">
+                        <Image
+                        key = {i.toString()}
+                        url = {this.state.imageObject[i]['image_versions2']['candidates'][1]['url']}
+                        allowFullScreen = {this.toggle_full_screen}
+                        index = {i}></Image>
+                      </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+        );
+      }
     }
   }
 }
