@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Image from './image';
+import LoadMore from './loadmore';
 import axios from 'axios';
 
 class UserGallery extends Component {
@@ -54,55 +55,28 @@ class UserGallery extends Component {
       likes = {this.state.imageObject[this.state.index]['like_count']}></Image>
       );
     }else{
-      if(this.state.hmp){
-        return(
+      return(
+          <div>
             <div>
-              <div>
-                <div className="row mb-1" style = {{overflowY: 'scroll', height: '80vh', marginTop: "20px", marginBottom: "20px", width:"100%"}}>
-                  {Object.keys(this.state.imageObject).map((i) => {
-                    return (
-                      <div className="m-auto">
-                          <div className="card m-2">
-                            <Image
-                            key = {i.toString()}
-                            url = {this.state.imageObject[i]['image_versions2']['candidates'][1]['url']}
-                            allowFullScreen = {this.toggle_full_screen}
-                            index = {i}></Image>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-                <div className="mb-3">
-                    <button className="btn btn-primary mb-5 " onClick={this.request_server}>Load More</button>
-                </div>
-              </div>
-            </div>
-        );
-      }
-      else{
-        return(
-            <div>
-              <div>
-                <div className="row" style = {{overflowY: 'scroll', height: '80vh', marginTop: "20px", marginBottom: "20px", width:"100%"}}>
-                  {Object.keys(this.state.imageObject).map((i) => {
-                    return (
-                      <div className="m-auto">
+              <div className="row mb-1" style = {{overflowY: 'scroll', height: '80vh', marginTop: "20px", marginBottom: "20px", width:"100%"}}>
+                {Object.keys(this.state.imageObject).map((i) => {
+                  return (
+                    <div className="m-auto">
                         <div className="card m-2">
-                        <Image
-                        key = {i.toString()}
-                        url = {this.state.imageObject[i]['image_versions2']['candidates'][1]['url']}
-                        allowFullScreen = {this.toggle_full_screen}
-                        index = {i}></Image>
+                          <Image
+                          key = {i.toString()}
+                          url = {this.state.imageObject[i]['image_versions2']['candidates'][1]['url']}
+                          allowFullScreen = {this.toggle_full_screen}
+                          index = {i}></Image>
                       </div>
-                      </div>
-                    )
-                  })}
-                </div>
+                    </div>
+                  )
+                })}
               </div>
+              <LoadMore hmp = {this.state.hmp} request_server = {this.request_server}></LoadMore>
             </div>
-        );
-      }
+          </div>
+      );
     }
   }
 }
