@@ -9,7 +9,8 @@ class LogUser extends Component {
     this.state = {
       username : null,
       password : null,
-      address : null
+      address : null,
+      errorMessage : null
     };
   }
     handleChange = (e) => {
@@ -22,12 +23,15 @@ class LogUser extends Component {
       e.preventDefault();
       axios.put(this.state.address+'/login',{'username':this.state.username,'password':this.state.password}).then((response) => {
         console.log(response.data);
-        if(response.data.invalid_credentials){
+        if(response.data.login){
            this.props.handleLogin(response.data.login,this.state.address);
            localStorage.setItem('loginValue',true);
            localStorage.setItem('address',this.state.address);
         }else{
-          alert("dfhs");
+          this.setState({
+            errorMessage : response.data.message
+          })
+          console.log(this.state.errorMessage);
         }
       })
       .catch((error) => {
@@ -55,6 +59,9 @@ class LogUser extends Component {
           <div className="form-group">
             <label>Server Adress</label>
             <input name="ipAddress" type="text" className="form-control" id="address" placeholder="0.0.0.0" onChange={this.handleChange}/>
+          </div>
+          <div className="form-group">
+            <span className="badge badge-danger">{this.state.errorMessage}</span>
           </div>
           <div className="form-group form-check">
             <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
