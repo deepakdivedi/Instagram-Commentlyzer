@@ -22,7 +22,6 @@ class LogUser extends Component {
     handleSubmit = (e) => {
       e.preventDefault();
       axios.put(this.state.address+'/login',{'username':this.state.username,'password':this.state.password}).then((response) => {
-        console.log(response.data);
         if(response.data.login){
            this.props.handleLogin(response.data.login,this.state.address);
            localStorage.setItem('loginValue',true);
@@ -31,7 +30,6 @@ class LogUser extends Component {
           this.setState({
             errorMessage : response.data.message
           })
-          console.log(this.state.errorMessage);
         }
       })
       .catch((error) => {

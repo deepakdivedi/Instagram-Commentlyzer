@@ -6,12 +6,24 @@ class Image extends Component {
   constructor (props){
     super(props);
     this.state={
-      comment_object : ""
+      comment_object : "",
+      media_id : "",
+      comment_count : ""
     }
   }
   componentDidMount = () =>{
-
+    this.setState({
+      media_id : this.props.media_id,
+      comment_count : this.props.comment_count
+    })
   }
+
+  request_server = () =>{
+    axios.put(this.props.address+'/analysecomments',{'media_id':this.state.media_id,'comment_count':this.state.comment_count}).then((response) => {
+
+    });
+  }
+
   render(){
     if(this.props.fullscreen){
       return(
@@ -28,6 +40,9 @@ class Image extends Component {
                 <h6>{this.props.caption}</h6>
                 <b>{this.props.comments[0]['user']['username']} : </b> {this.props.comments[0]['text']} <br/>
                 <b>{this.props.comments[1]['user']['username']} : </b> {this.props.comments[1]['text']}
+              </div>
+              <div className="p-2">
+                  <button className="btn btn-primary" onClick={()=>{this.request_server()}}>Check</button>
               </div>
             </div>
           </div>

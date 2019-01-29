@@ -11,23 +11,26 @@ class UserGallery extends Component {
       max_id : "",
       hmp : true,
       fullscreen : false,
-      index : ""
+      index : "",
+      comment_count : "",
+      media_id : ""
     }
     this.toggle_full_screen = this.toggle_full_screen.bind(this);
   }
   request_server = () =>{
     axios.put(this.props.address+'/userfeed',{'max_id':this.state.max_id}).then((response) => {
+      console.log(response.data);
       var temp_obj = this.state.imageObject.concat(response.data.feed);
       this.setState({
         imageObject : temp_obj,
         max_id : response.data.max_id,
-        hmp : response.data.hmp
+        hmp : response.data.hmp,
+        comment_count : response.data.comment_count
       })
       console.log(this.state.imageObject);
     });
   }
   componentDidMount = () => {
-    this.request_server();
     this.request_server();
     console.log(this.state.imageObject);
   }
@@ -52,7 +55,10 @@ class UserGallery extends Component {
       fullscreen = {this.state.fullscreen}
       caption = {this.state.imageObject[this.state.index]['caption']['text']}
       comments = {this.state.imageObject[this.state.index]['preview_comments']}
-      likes = {this.state.imageObject[this.state.index]['like_count']}></Image>
+      likes = {this.state.imageObject[this.state.index]['like_count']}
+      comment_count = {this.state.imageObject[this.state.index]['comment_count']}
+      media_id = {this.state.imageObject[this.state.index]['id']}
+      address = {this.props.address}></Image>
       );
     }else{
       return(
