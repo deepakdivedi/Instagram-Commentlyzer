@@ -1,7 +1,7 @@
 {
   "main.css": "/Commentlyzer/static/css/main.eac3ed92.chunk.css",
-  "main.js": "/Commentlyzer/static/js/main.410e11ae.chunk.js",
-  "main.js.map": "/Commentlyzer/static/js/main.410e11ae.chunk.js.map",
+  "main.js": "/Commentlyzer/static/js/main.d6df6458.chunk.js",
+  "main.js.map": "/Commentlyzer/static/js/main.d6df6458.chunk.js.map",
   "static/css/1.15aac153.chunk.css": "/Commentlyzer/static/css/1.15aac153.chunk.css",
   "static/js/1.d32f67e8.chunk.js": "/Commentlyzer/static/js/1.d32f67e8.chunk.js",
   "static/js/1.d32f67e8.chunk.js.map": "/Commentlyzer/static/js/1.d32f67e8.chunk.js.map",
@@ -10,6 +10,6 @@
   "static/css/1.15aac153.chunk.css.map": "/Commentlyzer/static/css/1.15aac153.chunk.css.map",
   "static/css/main.eac3ed92.chunk.css.map": "/Commentlyzer/static/css/main.eac3ed92.chunk.css.map",
   "index.html": "/Commentlyzer/index.html",
-  "precache-manifest.f07c91917970e632e1010565afd8d8ae.js": "/Commentlyzer/precache-manifest.f07c91917970e632e1010565afd8d8ae.js",
+  "precache-manifest.84ac8474c4ac0d2376c56a46a7c9aef6.js": "/Commentlyzer/precache-manifest.84ac8474c4ac0d2376c56a46a7c9aef6.js",
   "service-worker.js": "/Commentlyzer/service-worker.js"
 }
