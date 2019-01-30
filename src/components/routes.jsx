@@ -11,7 +11,7 @@ class Routes extends Component {
   render(){
     return(
       <div>
-        <Route exact={true} path="/" render={(props) => (<Home login={this.props.login} address={this.props.address}/>)}/>
+        <Route exact={true} path="/Commentlyzer" render={(props) => (<Home login={this.props.login} address={this.props.address}/>)}/>
         <Route path="/about" component={About}/>
         <Route path="/github" component={Github}/>
         <Route path="/loguser" render={(props) => (<LogUser handleLogin={this.props.handleLogin} login={this.props.login}/>)}/>
