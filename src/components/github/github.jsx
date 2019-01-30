@@ -15,7 +15,7 @@ class Github extends Component {
                 <h1>GitHub</h1>
                 <ul>
                   <li>
-                    <a href="https://github.com/shubhaemk/react-instagram-router">Instagram React App</a>
+                    <a href="https://github.com/shubhaemk/Commentlyzer">Instagram React App</a>
                   </li>
                   <li>
                     <a href="https://github.com/shubhaemk/python-flask-instagram-comment">Python Flask Rest Server</a>
