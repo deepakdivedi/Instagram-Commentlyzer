@@ -39,7 +39,7 @@ class LogUser extends Component {
   render(){
     if(this.props.login){
       return(
-        <Redirect to="/"></Redirect>
+        <Redirect to="/Commentlyzer"></Redirect>
       )
     }
     return(
