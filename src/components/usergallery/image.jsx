@@ -8,7 +8,8 @@ class Image extends Component {
     this.state={
       comment_object : "",
       media_id : "",
-      comment_count : ""
+      comment_count : "",
+      analysis : ""
     }
   }
   componentDidMount = () =>{
@@ -20,7 +21,10 @@ class Image extends Component {
 
   request_server = () =>{
     axios.put(this.props.address+'/analysecomments',{'media_id':this.state.media_id,'comment_count':this.state.comment_count}).then((response) => {
-
+      console.log(response.data)
+      this.setState({
+        analysis : response.data['Analysis']
+      })
     });
   }
 
@@ -40,9 +44,12 @@ class Image extends Component {
                 <h6>{this.props.caption}</h6>
                 <b>{this.props.comments[0]['user']['username']} : </b> {this.props.comments[0]['text']} <br/>
                 <b>{this.props.comments[1]['user']['username']} : </b> {this.props.comments[1]['text']}
-              </div>
-              <div className="p-2">
-                  <button className="btn btn-primary" onClick={()=>{this.request_server()}}>Check</button>
+                <br/>
+                <br/>
+                <button className="btn btn-primary" onClick={()=>{this.request_server()}}>Check</button>
+                <br />
+                <br/>
+                <label>{this.state.analysis}</label>
               </div>
             </div>
           </div>

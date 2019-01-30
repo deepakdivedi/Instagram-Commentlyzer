@@ -56,16 +56,13 @@ class LogUser extends Component {
           </div>
           <div className="form-group">
             <label>Server Adress</label>
-            <input name="ipAddress" type="text" className="form-control" id="address" placeholder="0.0.0.0" onChange={this.handleChange}/>
+            <input name="ipAddress" type="text" className="form-control" id="address" placeholder="http://0.0.0.0" onChange={this.handleChange}/>
+            <small id="emailHelp" className="form-text text-muted">Server IP Address at which Python-Server app is running.</small>
           </div>
           <div className="form-group">
             <span className="badge badge-danger">{this.state.errorMessage}</span>
           </div>
-          <div className="form-group form-check">
-            <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-            <label className="form-check-label">I agree to <a href="/about">Terms and Conditions</a></label>
-          </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-primary">Login</button>
         </form>
       </div>
     );
