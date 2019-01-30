@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/Commentlyzer/static/js/runtime~main.8c9b708d.js"
   },
   {
-    "revision": "74d5b67358157f7425d4",
-    "url": "/Commentlyzer/static/js/main.74d5b673.chunk.js"
+    "revision": "7350a7d57f2ee5cd4215",
+    "url": "/Commentlyzer/static/js/main.7350a7d5.chunk.js"
   },
   {
     "revision": "d32f67e8c1c3538f46fa",
     "url": "/Commentlyzer/static/js/1.d32f67e8.chunk.js"
   },
   {
-    "revision": "74d5b67358157f7425d4",
+    "revision": "7350a7d57f2ee5cd4215",
     "url": "/Commentlyzer/static/css/main.eac3ed92.chunk.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/Commentlyzer/static/css/1.15aac153.chunk.css"
   },
   {
-    "revision": "48ec1381f23ae9ed55a5b11176a981b8",
+    "revision": "f879a1a720fec32d6b463ed906394041",
     "url": "/Commentlyzer/index.html"
   }
 ];
