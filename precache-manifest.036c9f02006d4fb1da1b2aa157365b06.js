@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/Commentlyzer/static/css/1.15aac153.chunk.css"
   },
   {
-    "revision": "0ed26a6583027b23b77d5523a824d2c2",
+    "revision": "701b6ed9fc5afe9830b8e2f59a069864",
     "url": "/Commentlyzer/index.html"
   }
 ];
