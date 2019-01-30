@@ -21,7 +21,6 @@ class Image extends Component {
 
   request_server = () =>{
     axios.put(this.props.address+'/analysecomments',{'media_id':this.state.media_id,'comment_count':this.state.comment_count}).then((response) => {
-      console.log(response.data)
       this.setState({
         analysis : response.data['Analysis']
       })

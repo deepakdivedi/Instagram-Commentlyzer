@@ -19,7 +19,6 @@ class UserGallery extends Component {
   }
   request_server = () =>{
     axios.put(this.props.address+'/userfeed',{'max_id':this.state.max_id}).then((response) => {
-      console.log(response.data);
       var temp_obj = this.state.imageObject.concat(response.data.feed);
       this.setState({
         imageObject : temp_obj,
@@ -27,12 +26,10 @@ class UserGallery extends Component {
         hmp : response.data.hmp,
         comment_count : response.data.comment_count
       })
-      console.log(this.state.imageObject);
     });
   }
   componentDidMount = () => {
     this.request_server();
-    console.log(this.state.imageObject);
   }
 
   toggle_full_screen = (index) => {
