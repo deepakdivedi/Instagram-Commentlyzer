@@ -13,7 +13,7 @@ class NavBar extends Component {
             <div className="navbar-collapse collapse justify-content-stretch">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link to="/Commentlyzer" className="nav-link">Home</Link>
+                  <Link to="/Commentlyzer" className="nav-link">Homeie</Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/github" className="nav-link">GitHub</Link>
